@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 import 'package:movies_app/core/data/error/exceptions.dart';
@@ -139,14 +141,13 @@ class MoviesRemoteDataSourceImpl extends MoviesRemoteDataSource {
     try {
       final response = await Dio().get(ApiConstants.getMovieDetailsPath(movieId));
       MovieDetailsModel movieDetailModel = MovieDetailsModel.fromJson(response.data);
-      print('title: ${movieDetailModel.title}');
+      log('title: ${movieDetailModel.title}');
 
 
       await updateVoteAverage(movieId,ratingStar,movieDetailModel);
 
       var movieDetailClick = MongoDB.db.collection('movieVote');
       String formattedTimestamp = DateFormat('yyyy-MM-ddTHH:mm:ss').format(DateTime.now());
-      print('ratingStar: ${ratingStar}');
       if (ratingStar != -1) {
         movieDetailClick.insertOne({
           'message': 'Click recorded',

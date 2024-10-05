@@ -40,7 +40,7 @@ class SectionListViewCard extends StatelessWidget {
             children: [
               Text(
                 media.title,
-                maxLines: 2,
+                maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: textTheme.bodyMedium,
               ),

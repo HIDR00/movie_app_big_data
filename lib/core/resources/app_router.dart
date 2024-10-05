@@ -6,6 +6,7 @@ import 'package:movies_app/movies/presentation/views/movies_view.dart';
 import 'package:movies_app/movies/presentation/views/popular_movies_view.dart';
 import 'package:movies_app/movies/presentation/views/top_rated_movies_view.dart';
 import 'package:movies_app/search/presentation/views/search_view.dart';
+import 'package:movies_app/sign/presentation/view/sign_view.dart';
 import 'package:movies_app/tv_shows/presentation/views/popular_tv_shows_view.dart';
 import 'package:movies_app/tv_shows/presentation/views/top_rated_tv_shows_view.dart';
 import 'package:movies_app/tv_shows/presentation/views/tv_show_details_view.dart';
@@ -24,13 +25,14 @@ const String popularTVShowsPath = 'popularTVShows';
 const String topRatedTVShowsPath = 'topRatedTVShows';
 const String searchPath = '/search';
 const String watchlistPath = '/watchlist';
+const String signPath = '/sign';
 
 class AppRouter {
   GoRouter router = GoRouter(
-    initialLocation: moviesPath,
+    initialLocation: signPath,
     routes: [
       ShellRoute(
-        builder: (context, state, child) => MainPage(child: child),
+        builder: (context, state, child) => MainPage(child: child,),
         routes: [
           GoRoute(
             name: AppRoutes.moviesRoute,
@@ -111,7 +113,14 @@ class AppRouter {
             ),
           ),
         ],
-      )
+      ),
+      GoRoute(
+            name: AppRoutes.signRoute,
+            path: signPath,
+            pageBuilder: (context, state) => const NoTransitionPage(
+              child: SignView(),
+            ),
+          ),
     ],
   );
 }

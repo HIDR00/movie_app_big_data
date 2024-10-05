@@ -77,5 +77,5 @@ class ApiConstants {
   }
 
   static const String mongoUrl =
-      'mongodb+srv://21011228:Hidr0%21%21%21@cluster0.gpwjpwu.mongodb.net/movies?retryWrites=true&w=majority&appName=Cluster0';
+      'mongodb+srv://Hidr0:Hidr0%21%21%21@cluster0.gpwjpwu.mongodb.net/movies?retryWrites=true&w=majority&appName=Cluster0';
 }

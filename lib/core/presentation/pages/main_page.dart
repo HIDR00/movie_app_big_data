@@ -6,6 +6,8 @@ import 'package:movies_app/core/resources/app_strings.dart';
 import 'package:movies_app/core/resources/app_routes.dart';
 import 'package:movies_app/core/resources/app_values.dart';
 
+import '../../../movies/presentation/views/movies_view.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({
     Key? key,

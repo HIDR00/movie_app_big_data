@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:movies_app/core/domain/entities/media.dart';
 import 'package:movies_app/core/domain/entities/media_details.dart';
 import 'package:movies_app/core/presentation/components/custom_rating_bar.dart';
@@ -72,7 +71,7 @@ class DetailsCard extends StatelessWidget {
                                     builder: (context) {
                                       return AlertDialog(
                                         content: SizedBox(
-                                          height: 250,
+                                          height: 260,
                                           child: Padding(
                                             padding: const EdgeInsets.only(bottom: 20),
                                             child: Column(
@@ -96,7 +95,10 @@ class DetailsCard extends StatelessWidget {
                                                       maxLines: 3,
                                                       decoration: const InputDecoration(
                                                         fillColor: AppColors.black,
-                                                        hintStyle: TextStyle(color: Colors.black),
+                                                        hintText: 'Your Reviews',
+                                                        hintStyle: TextStyle(color: Colors.grey),
+                                                        enabledBorder: InputBorder.none,
+                                                        focusedBorder: InputBorder.none,
                                                       ),
                                                       style: const TextStyle(color: Colors.black),
                                                     onChanged: onChanged
@@ -119,16 +121,18 @@ class DetailsCard extends StatelessWidget {
                                                         ),
                                                       ),
                                                     ), 
-                                                    child: const Row(
-                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                      children: [
-                                                        Text(
-                                                          'Cornfirm',
-                                                          style: TextStyle(color: AppColors.primaryBtnText),
+                                                    child: const SizedBox(
+                                                      height: 30,
+                                                      child: Center(
+                                                        child: Text(
+                                                          'Confirm',
+                                                          style: TextStyle(color: AppColors.primaryBtnText,
+                                                          fontSize: AppSize.s20
+                                                          ),
                                                           maxLines: 1,
                                                           overflow: TextOverflow.ellipsis,
                                                         ),
-                                                      ],
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
